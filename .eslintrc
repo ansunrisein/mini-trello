@@ -29,7 +29,10 @@
     "import/no-internal-modules": [
       "error",
       {
-        "allow": []
+        "allow": [
+          "redux-persist/lib/storage",
+          "redux-persist/integration/react"
+        ]
       }
     ],
     "import/no-useless-path-segments": "error",
