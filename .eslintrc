@@ -51,6 +51,9 @@
       }
     ]
   },
+  "settings": {
+    "import/internal-regex": "^@mt"
+  },
   "plugins": [
     "import",
     "prettier",

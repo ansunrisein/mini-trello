@@ -12,6 +12,8 @@
     "@types/react-dom": "^16.9.8",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
+    "react-app-rewire-aliases": "^0.2.0",
+    "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "reflexbox": "^4.0.6",
@@ -20,10 +22,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
