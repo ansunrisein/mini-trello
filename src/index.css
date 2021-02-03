@@ -38,3 +38,14 @@ button:focus {
   outline: none;
 }
 
+input, textarea {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
