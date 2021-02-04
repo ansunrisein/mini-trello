@@ -1,0 +1,35 @@
+@import 'src/theme';
+
+.title {
+  font-size: larger;
+}
+
+.remove {
+  font-size: smaller;
+  padding: 0.5rem 0.6rem;
+}
+
+.add {
+  margin-bottom: 1rem;
+}
+
+.board {
+  padding: 1rem 1rem;
+
+  border: 1px solid;
+  border-radius: 15px;
+  box-shadow: 0 0 5px $color-5 inset;
+
+  transition: all linear 80ms;
+
+  &:hover {
+    box-shadow: 0 0 10px $color-5 inset;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+}
