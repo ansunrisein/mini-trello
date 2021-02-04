@@ -1,0 +1,24 @@
+@import 'src/theme';
+
+.background {
+  background: $color-0;
+  color: $color-4;
+  height: 100vh;
+}
+
+.children {
+  padding: 1rem 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid $color-5;
+  box-shadow: 0 0 5px $color-5;
+}
+
+.title {
+  font-size: larger;
+  font-weight: 300;
+}
