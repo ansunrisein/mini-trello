@@ -1,4 +1,4 @@
-import {TBoard, TBoardAction, TCard} from '@mt/types'
+import {TBoard, TCard} from '@mt/types'
 import {
   ADD_BOARD,
   ADD_BOARD_CARD,
@@ -8,40 +8,50 @@ import {
   REMOVE_BOARD,
   REMOVE_BOARD_CARD,
 } from '@mt/store/actionTypes'
+import {
+  TAddBoard,
+  TAddBoardCard,
+  TAddListItem,
+  TChangeBoardCard,
+  TChangeBoardTitle,
+  TMoveListItem,
+  TRemoveBoard,
+  TRemoveBoardCard,
+} from '@mt/store/types'
 
-export const addBoard = (): {type: string} => ({
+export const addBoard = (): TAddBoard => ({
   type: ADD_BOARD,
 })
 
-export const removeBoard = (board: TBoard): TBoardAction => ({
+export const removeBoard = (board: TBoard): TRemoveBoard => ({
   type: REMOVE_BOARD,
   board,
 })
 
-export const changeBoardTitle = (board: TBoard, title: TBoard['title']): TBoardAction => ({
+export const changeBoardTitle = (board: TBoard, title: TBoard['title']): TChangeBoardTitle => ({
   type: CHANGE_BOARD_TITLE,
   title,
   board,
 })
 
-export const addBoardCard = (board: TBoard): TBoardAction => ({
+export const addBoardCard = (board: TBoard): TAddBoardCard => ({
   type: ADD_BOARD_CARD,
   board,
 })
 
-export const removeBoardCard = (board: TBoard, card: TCard): TBoardAction => ({
+export const removeBoardCard = (board: TBoard, card: TCard): TRemoveBoardCard => ({
   type: REMOVE_BOARD_CARD,
   board,
   card,
 })
 
-export const changeBoardCard = (board: TBoard, card: TCard): TBoardAction => ({
+export const changeBoardCard = (board: TBoard, card: TCard): TChangeBoardCard => ({
   type: CHANGE_BOARD_CARD,
   board,
   card,
 })
 
-export const addListItem = (board: TBoard, card: TCard): TBoardAction => ({
+export const addListItem = (board: TBoard, card: TCard): TAddListItem => ({
   type: ADD_LIST_ITEM,
   board,
   card,

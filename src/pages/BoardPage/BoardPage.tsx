@@ -1,8 +1,8 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {useParams} from 'react-router'
-import {TBoardState} from '@mt/types'
 import {Board} from '@mt/components'
+import {TBoardState} from '@mt/store/types'
 
 export const BoardPage: React.FC = () => {
   const {id} = useParams<{id: string}>()

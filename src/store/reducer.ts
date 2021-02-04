@@ -1,5 +1,5 @@
 import {v4} from 'uuid'
-import {TBoardAction, TBoardState} from '@mt/types'
+import {TAction, TBoardState} from './types'
 import {
   ADD_BOARD,
   ADD_BOARD_CARD,
@@ -14,7 +14,7 @@ export const initialState: TBoardState = {
   boards: [],
 }
 
-export const reducer = (state: TBoardState = initialState, action: TBoardAction): TBoardState => {
+export const reducer = (state: TBoardState = initialState, action: TAction): TBoardState => {
   switch (action.type) {
     case ADD_BOARD:
       return {

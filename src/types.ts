@@ -13,16 +13,3 @@ export type TBoard = {
   title: string
   cards: TCard[]
 }
-
-export type TBoardAction = {
-  type: string
-  board: TBoard
-  card?: TCard
-  title?: TBoard['title']
-}
-
-export type TBoardState = {
-  boards: TBoard[]
-}
-
-export type DispatchType = (args: TBoardAction) => TBoardAction

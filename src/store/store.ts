@@ -1,7 +1,7 @@
 import {createStore} from 'redux'
 import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import {TBoardAction, TBoardState} from '@mt/types'
+import {TAction, TBoardState} from './types'
 import {reducer} from './reducer'
 
 const persistConfig = {
@@ -9,7 +9,7 @@ const persistConfig = {
   storage,
 }
 
-const persistedReducer = persistReducer<TBoardState, TBoardAction>(persistConfig, reducer)
+const persistedReducer = persistReducer<TBoardState, TAction>(persistConfig, reducer)
 
 export const createStoreWithPersistor = (): {store: any; persistor: any} => {
   const store = createStore(persistedReducer)
