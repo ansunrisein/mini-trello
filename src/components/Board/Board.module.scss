@@ -1,0 +1,11 @@
+@import 'src/theme';
+
+.title {
+  font-size: xx-large;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid $color-2;
+}
+
+.width {
+  width: fit-content;
+}
