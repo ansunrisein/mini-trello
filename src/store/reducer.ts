@@ -95,9 +95,7 @@ export const reducer = (state: TBoardState = initialState, action: TBoardAction)
                     ? {
                         ...card,
                         list: [
-                          ...(action.card.list.length !== 1
-                            ? action.card.list.filter(e => !!e.text)
-                            : action.card.list),
+                          ...(card.list.length !== 1 ? card.list.filter(e => !!e.text) : card.list),
                           {id: v4(), text: '', checked: false},
                         ],
                       }
