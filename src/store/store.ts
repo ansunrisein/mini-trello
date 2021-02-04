@@ -11,7 +11,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer<TBoardState, TBoardAction>(persistConfig, reducer)
 
-export const createStoreWithPersistor = () => {
+export const createStoreWithPersistor = (): {store: any; persistor: any} => {
   const store = createStore(persistedReducer)
   const persistor = persistStore(store as any)
   return {store, persistor}
