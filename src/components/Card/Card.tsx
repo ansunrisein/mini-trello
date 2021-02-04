@@ -63,9 +63,6 @@ export const Card: React.FC<CardProps> = ({card, onChange, onListItemAdd, onRemo
           </Flex>
         ))}
       </ul>
-      <Button onClick={save} className={styles.save}>
-        Save
-      </Button>
       <Button onClick={() => onRemove?.()} className={styles.cross}>
         X
       </Button>

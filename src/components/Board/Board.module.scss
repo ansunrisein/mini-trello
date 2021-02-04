@@ -9,3 +9,21 @@
 .width {
   width: fit-content;
 }
+
+.list {
+  height: 70vh;
+  overflow-x: auto;
+
+  @media (max-width: 768px) {
+    max-height: 60vh;
+  }
+}
+
+.add {
+  opacity: 0;
+  align-self: flex-end;
+}
+
+.active {
+  opacity: 1;
+}

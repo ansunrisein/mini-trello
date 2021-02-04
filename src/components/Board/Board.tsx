@@ -1,7 +1,8 @@
 import React, {useCallback} from 'react'
-import {Flex} from 'reflexbox'
+import {Box, Flex} from 'reflexbox'
 import {useForm} from 'react-hook-form'
 import {connect} from 'react-redux'
+import c from 'classnames'
 import {TBoard, TCard} from '@mt/types'
 import {
   addBoardCard,
@@ -47,22 +48,27 @@ export const BoardComponent: React.FC<BoardProps> = ({
           onChange={onChangeTitle}
         />
       </form>
-      <Flex marginTop="1rem">
+      <Button
+        primary
+        onClick={addCard}
+        className={c(
+          styles.add,
+          (!board.cards.length || board.cards[board.cards.length - 1].title) && styles.active,
+        )}
+      >
+        Add card
+      </Button>
+      <Flex marginTop="1rem" className={styles.list}>
         {board.cards.map(e => (
-          <div key={e.id}>
+          <Box flexShrink={0} key={e.id}>
             <Card
               card={e}
               onChange={changeCard}
               onListItemAdd={addListItem}
               onRemove={removeCard(e)}
             />
-          </div>
+          </Box>
         ))}
-        {(!board.cards.length || board.cards[board.cards.length - 1].title) && (
-          <Button primary onClick={addCard}>
-            Add card
-          </Button>
-        )}
       </Flex>
     </Flex>
   )
