@@ -1,6 +1,8 @@
 @import 'src/theme';
 
 .background {
+  min-height: 100vh;
+
   background: $color-0;
   color: $color-4;
   height: 100vh;
