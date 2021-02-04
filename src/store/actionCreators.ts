@@ -5,6 +5,7 @@ import {
   ADD_LIST_ITEM,
   CHANGE_BOARD_CARD,
   CHANGE_BOARD_TITLE,
+  MOVE_LIST_ITEM,
   REMOVE_BOARD,
   REMOVE_BOARD_CARD,
 } from '@mt/store/actionTypes'
@@ -55,4 +56,19 @@ export const addListItem = (board: TBoard, card: TCard): TAddListItem => ({
   type: ADD_LIST_ITEM,
   board,
   card,
+})
+
+export const moveListItem = (
+  boardId: TBoard['id'],
+  distId: TCard['id'],
+  srcId: TCard['id'],
+  itemId: string,
+  index: number,
+): TMoveListItem => ({
+  type: MOVE_LIST_ITEM,
+  boardId,
+  distId,
+  srcId,
+  itemId,
+  index,
 })

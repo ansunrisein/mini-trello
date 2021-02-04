@@ -1,4 +1,5 @@
 import {v4} from 'uuid'
+import {moveListItemTo} from '@mt/store/helpers'
 import {TAction, TBoardState} from './types'
 import {
   ADD_BOARD,
@@ -6,6 +7,7 @@ import {
   ADD_LIST_ITEM,
   CHANGE_BOARD_CARD,
   CHANGE_BOARD_TITLE,
+  MOVE_LIST_ITEM,
   REMOVE_BOARD,
   REMOVE_BOARD_CARD,
 } from './actionTypes'
@@ -105,6 +107,62 @@ export const reducer = (state: TBoardState = initialState, action: TAction): TBo
             : board,
         ),
       }
+    case MOVE_LIST_ITEM: {
+      const board = state.boards.find(board => board.id === action.boardId)
+      const src = board?.cards.find(card => card.id === action.srcId)
+      const dist = board?.cards.find(card => card.id === action.distId)
+
+      const item = src?.list.find(item => item.id === action.itemId)
+
+      if (src && item && src === dist) {
+        return {
+          boards: state.boards.map(board =>
+            board.id === action.boardId
+              ? {
+                  ...board,
+                  cards: board.cards.map(card =>
+                    card.id === src.id
+                      ? {
+                          ...card,
+                          list: moveListItemTo(item, action.index, card.list),
+                        }
+                      : card,
+                  ),
+                }
+              : board,
+          ),
+        }
+      } else if (src && dist && item) {
+        return {
+          boards: state.boards.map(board =>
+            board.id === action.boardId
+              ? {
+                  ...board,
+                  cards: board.cards.map(card =>
+                    card === src
+                      ? {
+                          ...card,
+                          list: card.list.filter(item => item.id !== action.itemId),
+                        }
+                      : card === dist
+                      ? {
+                          ...card,
+                          list: [
+                            ...card.list.slice(0, action.index),
+                            item,
+                            ...card.list.slice(action.index),
+                          ],
+                        }
+                      : card,
+                  ),
+                }
+              : board,
+          ),
+        }
+      }
+
+      return state
+    }
     default:
       return state
   }

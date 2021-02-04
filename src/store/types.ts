@@ -5,6 +5,7 @@ import {
   ADD_LIST_ITEM,
   CHANGE_BOARD_CARD,
   CHANGE_BOARD_TITLE,
+  MOVE_LIST_ITEM,
   REMOVE_BOARD,
   REMOVE_BOARD_CARD,
 } from '@mt/store/actionTypes'
@@ -17,6 +18,7 @@ export type TAction =
   | TRemoveBoardCard
   | TChangeBoardCard
   | TAddListItem
+  | TMoveListItem
 
 export type TBoardState = {
   boards: TBoard[]
@@ -58,4 +60,13 @@ export type TAddListItem = {
   type: typeof ADD_LIST_ITEM
   board: TBoard
   card: TCard
+}
+
+export type TMoveListItem = {
+  type: typeof MOVE_LIST_ITEM
+  boardId: TBoard['id']
+  distId: TCard['id']
+  srcId: TCard['id']
+  itemId: string
+  index: number
 }
