@@ -1,11 +1,31 @@
-export const moveListItemTo = <T>(item: T, to: number, list: T[]): T[] => {
-  const i = list.indexOf(item)
+import * as R from 'ramda'
+import {TBoard, TCard} from '@mt/types'
 
-  if (to > i) {
-    return [...list.slice(0, i), ...list.slice(i + 1, to + 1), item, ...list.slice(to + 1)]
-  } else if (to < i) {
-    return [...list.slice(0, to), item, ...list.slice(to, i), ...list.slice(i + 1)]
-  }
+export const adjustIf = <T>(
+  predicate: (e: T) => boolean,
+  update: (e: T) => T,
+): ((arr: T[]) => T[]) => R.map(R.when(predicate, update))
 
-  return list
-}
+export const idEq = R.propEq('id')
+
+export const adjustBoardById = <T extends {boards: TBoard[]}>(
+  id: TBoard['id'],
+  update: (board: TBoard) => TBoard,
+  state: T,
+): T =>
+  R.evolve(
+    {
+      boards: adjustIf<TBoard>(idEq(id), update),
+    },
+    state,
+  ) as T
+
+export const adjustCardById = (id: TCard['id'], update: (card: TCard) => TCard) => (
+  board: TBoard,
+): TBoard =>
+  R.evolve(
+    {
+      cards: adjustIf<TCard>(idEq(id), update),
+    },
+    board,
+  )
