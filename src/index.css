@@ -18,6 +18,10 @@ ul {
 
 * {
   box-sizing: border-box;
+
+  transition-timing-function: linear;
+  transition-duration: 80ms;
+  transition-property: color, background-color;
 }
 
 a {

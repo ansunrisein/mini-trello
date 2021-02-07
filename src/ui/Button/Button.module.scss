@@ -1,27 +1,30 @@
-@import 'src/theme';
+@import '../Theme/theme';
 
 .button {
   width: fit-content;
   height: fit-content;
   padding: 0.5rem 2rem;
 
-  border: 1px solid $color-2;
   border-radius: 10px;
-  box-shadow: 0 0 5px inset $color-2;
+  transition: box-shadow linear 80ms;
+  @include themify {
+    border: 1px solid $color-2;
+    box-shadow: 0 0 5px inset $color-2;
 
-  transition: all linear 80ms;
-
-  &:hover {
-    box-shadow: 0 0 10px inset $color-2;
+    &:hover {
+      box-shadow: 0 0 10px inset $color-2;
+    }
   }
 }
 
 .primary {
-  box-shadow: 0 0 5px inset $color-1;
-  background: $color-5;
-  color: $color-0;
+  @include themify {
+    box-shadow: 0 0 5px inset $color-1;
+    background-color: $color-5;
+    color: $color-0;
 
-  &:hover {
-    box-shadow: 0 0 10px inset $color-1;
+    &:hover {
+      box-shadow: 0 0 10px inset $color-1;
+    }
   }
 }

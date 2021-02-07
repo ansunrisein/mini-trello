@@ -1,0 +1,48 @@
+$color-0: null;
+$color-1: null;
+$color-2: null;
+$color-3: null;
+$color-4: null;
+$color-5: null;
+
+$themes: (
+  'dark': (
+    'color-0': #232329,
+    'color-1': #3a494d,
+    'color-2': #7e8ba7,
+    'color-3': #6ec2d9,
+    'color-4': #c1c8c6,
+    'color-5': #a497a6,
+  ),
+  'light': (
+    'color-0': #ffffff,
+    'color-1': #579390,
+    'color-2': #7e8ba7,
+    'color-3': #ed8b7a,
+    'color-4': #32374f,
+    'color-5': #ed8b7a,
+  ),
+);
+
+@mixin themify($themes: $themes) {
+  @each $theme, $colors in $themes {
+    &:global(.theme-#{$theme}),
+    :global(.theme-#{$theme}) & {
+      $color-0: map-get($colors, 'color-0') !global;
+      $color-1: map-get($colors, 'color-1') !global;
+      $color-2: map-get($colors, 'color-2') !global;
+      $color-3: map-get($colors, 'color-3') !global;
+      $color-4: map-get($colors, 'color-4') !global;
+      $color-5: map-get($colors, 'color-5') !global;
+
+      @content;
+
+      $color-0: null !global;
+      $color-1: null !global;
+      $color-2: null !global;
+      $color-3: null !global;
+      $color-4: null !global;
+      $color-5: null !global;
+    }
+  }
+}

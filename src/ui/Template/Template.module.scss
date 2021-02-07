@@ -1,10 +1,12 @@
-@import 'src/theme';
+@import '../Theme/theme';
 
 .background {
   min-height: 100vh;
 
-  background: $color-0;
-  color: $color-4;
+  @include themify {
+    background-color: $color-0;
+    color: $color-4;
+  }
 }
 
 .children {
@@ -24,12 +26,20 @@
 
   padding: 1rem 0;
 
-  background: $color-0;
-  border-bottom: 1px solid $color-5;
-  box-shadow: 0 0 5px $color-5;
+  @include themify {
+    background: $color-0;
+    border-bottom: 1px solid $color-5;
+    box-shadow: 0 0 5px $color-5;
+  }
 }
 
 .title {
   font-size: larger;
   font-weight: 300;
+}
+
+.switcher {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
 }

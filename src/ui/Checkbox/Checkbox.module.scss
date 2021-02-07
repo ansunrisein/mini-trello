@@ -1,4 +1,4 @@
-@import "src/theme";
+@import '../Theme/theme';
 
 .size {
   width: 1rem;
@@ -12,14 +12,16 @@
   height: 100%;
   width: 100%;
 
-  border: 2px solid $color-2;
+  @include themify {
+    border: 2px solid $color-2;
+  }
   border-radius: 50%;
 
   user-select: none;
   cursor: pointer;
 
-  input[type=checkbox]:checked + &::after {
-    content: "";
+  input[type='checkbox']:checked + &::after {
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,7 +30,12 @@
     width: 60%;
     height: 60%;
 
-    background: $color-3;
     border-radius: 50%;
+  }
+
+  @include themify {
+    &::after {
+      background: $color-3;
+    }
   }
 }

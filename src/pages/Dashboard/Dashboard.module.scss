@@ -1,4 +1,4 @@
-@import 'src/theme';
+@import '../../ui/Theme/theme';
 
 .title {
   font-size: larger;
@@ -21,14 +21,16 @@
 .board {
   padding: 1rem 1rem;
 
-  border: 1px solid;
   border-radius: 15px;
-  box-shadow: 0 0 5px $color-5 inset;
+  @include themify {
+    border: 1px solid $color-5;
+    box-shadow: 0 0 5px $color-5 inset;
 
-  transition: all linear 80ms;
+    transition: box-shadow linear 80ms;
 
-  &:hover {
-    box-shadow: 0 0 10px $color-5 inset;
+    &:hover {
+      box-shadow: 0 0 10px $color-5 inset;
+    }
   }
 }
 

@@ -1,9 +1,11 @@
-@import 'src/theme';
+@import '../../ui/Theme/theme';
 
 .title {
   font-size: xx-large;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid $color-2;
+  @include themify {
+    border-bottom: 1px solid $color-2;
+  }
 }
 
 .width {
