@@ -1,11 +1,13 @@
+export type TItem = {
+  id: string
+  text: string
+  checked?: boolean
+}
+
 export type TCard = {
   id: string
   title: string
-  list: {
-    id: string
-    text: string
-    checked?: boolean
-  }[]
+  list: TItem[]
 }
 
 export type TBoard = {
