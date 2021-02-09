@@ -27,7 +27,7 @@ export const reducer = (state: TBoardState = initialState, action: TAction): TBo
             id: v4(),
             title: 'My board' + state.boards.length,
             cards: [],
-          }),
+          }) as any,
         },
         state,
       )
@@ -55,7 +55,7 @@ export const reducer = (state: TBoardState = initialState, action: TAction): TBo
             title: '',
             list: [{id: v4(), text: '', checked: false}],
           }),
-        }),
+        }) as any,
         state,
       )
     case CHANGE_BOARD_CARD:
