@@ -10,10 +10,7 @@
   ],
   "rules": {
     "react/prop-types": 0,
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    "linebreak-style": "off",
     "@typescript-eslint/no-explicit-any": 0,
     "eol-last": "error",
     "jsx-quotes": [
