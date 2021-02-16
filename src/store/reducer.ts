@@ -25,7 +25,7 @@ export const reducer = (state: TBoardState = initialState, action: TAction): TBo
         {
           boards: R.append<TBoard>({
             id: v4(),
-            title: 'My board' + state.boards.length,
+            title: `My board ${state.boards.length}`,
             cards: [],
           }) as any,
         },

@@ -8,7 +8,9 @@ export const BoardPage: React.FC = () => {
   const {id} = useParams<{id: string}>()
   const board = useSelector((state: TBoardState) => state.boards.find(e => e.id === id))
 
-  if (!board) return <>Not Found</>
+  if (!board) {
+    return <>Not Found</>
+  }
 
   return <Board board={board} />
 }
