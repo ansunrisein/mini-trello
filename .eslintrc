@@ -28,7 +28,8 @@
       {
         "allow": [
           "redux-persist/lib/storage",
-          "redux-persist/integration/react"
+          "redux-persist/integration/react",
+          "react-icons/ai"
         ]
       }
     ],
