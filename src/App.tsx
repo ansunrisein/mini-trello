@@ -2,7 +2,7 @@ import React from 'react'
 import {Redirect, Route, Switch} from 'react-router'
 import {BrowserRouter} from 'react-router-dom'
 import {BoardPage, Dashboard} from '@mt/pages'
-import {Template} from '@mt/ui'
+import {Template} from '@mt/components'
 
 export const App: React.FC = () => (
   <BrowserRouter>

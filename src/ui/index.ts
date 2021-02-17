@@ -1,6 +1,5 @@
 export * from './Button'
 export * from './Checkbox'
 export * from './Input'
-export * from './Template'
 export * from './Theme'
 export * from './ThemeSwitcher'
