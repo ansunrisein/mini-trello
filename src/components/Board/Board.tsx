@@ -2,7 +2,6 @@ import React, {useCallback} from 'react'
 import {Box, Flex} from 'reflexbox'
 import {useForm} from 'react-hook-form'
 import {connect} from 'react-redux'
-import c from 'classnames'
 import {DragDropContext, DropResult} from 'react-beautiful-dnd'
 import {TBoard, TCard} from '@mt/types'
 import {
@@ -57,14 +56,7 @@ export const BoardComponent: React.FC<BoardProps> = ({
           onChange={onChangeTitle}
         />
       </form>
-      <Button
-        primary
-        onClick={addCard}
-        className={c(
-          styles.add,
-          (!board.cards.length || board.cards[board.cards.length - 1].title) && styles.active,
-        )}
-      >
+      <Button primary onClick={addCard} className={styles.add}>
         Add card
       </Button>
       <DragDropContext onDragEnd={onDragEnd}>
