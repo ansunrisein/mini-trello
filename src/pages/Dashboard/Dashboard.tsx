@@ -2,6 +2,7 @@ import React from 'react'
 import {connect, useSelector} from 'react-redux'
 import {Flex} from 'reflexbox'
 import {Link} from 'react-router-dom'
+import {AiOutlineDelete} from 'react-icons/ai'
 import {TBoard} from '@mt/types'
 import {TBoardState} from '@mt/store/types'
 import {addBoard, removeBoard} from '@mt/store'
@@ -34,7 +35,7 @@ export const DashboardComponent: React.FC<DashboardProps> = ({addNewBoard, remov
               <h1 className={styles.title}>{e.title}</h1>
             </Link>
             <Button className={styles.remove} onClick={removeBoard(e)}>
-              Remove
+              <AiOutlineDelete size="1.2rem" />
             </Button>
           </Flex>
         ))}

@@ -36,6 +36,16 @@
 .title {
   font-size: larger;
   font-weight: 300;
+
+  transition: border 120ms linear;
+
+  @include themify {
+    border-color: $color-5;
+  }
+
+  &:hover {
+    border-bottom: 1px solid;
+  }
 }
 
 .switcher {
