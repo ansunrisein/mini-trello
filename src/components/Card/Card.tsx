@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form'
 import {Flex} from 'reflexbox'
 import c from 'classnames'
 import {Draggable, Droppable} from 'react-beautiful-dnd'
+import {AiOutlineClose} from 'react-icons/ai'
 import {TCard} from '@mt/types'
 import {Button, Checkbox, Input} from '@mt/ui'
 import {useOnEnter} from '@mt/hooks'
@@ -76,7 +77,7 @@ export const Card: React.FC<CardProps> = ({card, onChange, onListItemAdd, onRemo
             {provided.placeholder}
           </ul>
           <Button onClick={() => onRemove?.()} className={styles.cross}>
-            X
+            <AiOutlineClose />
           </Button>
         </Flex>
       )}
